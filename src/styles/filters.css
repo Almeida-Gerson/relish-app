@@ -1,0 +1,16 @@
+.relish-app-filters {
+  display: flex;
+  align-items: flex-end;
+}
+
+.relish-app-filters__item:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.relish-app-filters__input-container {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.relish-app-filters__button {
+}

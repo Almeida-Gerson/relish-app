@@ -1,0 +1,17 @@
+.relish-app-photo {
+  max-width: 400px;
+  border: 1px solid gray;
+  padding: 0.5rem;
+}
+
+.relish-app-photo__title {
+  font-weight: 600;
+}
+
+.relish-app-photo__image {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  aspect-ratio: 1 / 1;
+}
