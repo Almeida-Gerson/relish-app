@@ -10,7 +10,7 @@ const Pagination = ({
   onPageChange = () => {},
 }) => {
   const numberOfPages = useMemo(() => {
-    return total / pageSize;
+    return Math.floor(total / pageSize || 1);
   }, [pageSize, total]);
 
   if (numberOfPages <= 1) {
