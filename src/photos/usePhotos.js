@@ -5,6 +5,7 @@ import { defaultFilters, STATUSES } from "../constants";
 export const usePhotos = () => {
   const [photosState, setPhotosState] = useState({
     photos: [],
+    total: 0,
     filters: { ...defaultFilters },
     status: STATUSES?.IDLE,
     filtersChanged: true,
@@ -24,7 +25,8 @@ export const usePhotos = () => {
         const { data } = await getPhotosService(photosState?.filters);
         setPhotosState((prevState) => ({
           ...prevState,
-          photos: data || [],
+          photos: data?.photos || [],
+          total: data?.total || 0,
           status: STATUSES?.IDLE,
         }));
       }

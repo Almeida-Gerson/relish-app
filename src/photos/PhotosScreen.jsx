@@ -13,9 +13,18 @@ const PhotosScreen = () => {
   };
 
   const renderPhotos = useCallback(() => {
-    return photosState?.photos?.map(({ id, url, title, album }) => (
-      <Photo key={id} id={id} url={url} title={title} album={album} />
-    ));
+    return photosState?.photos?.map(
+      ({ id, url, thumbnailUrl, title, album }) => (
+        <Photo
+          key={id}
+          id={id}
+          url={url}
+          thumbnailUrl={thumbnailUrl}
+          title={title}
+          album={album}
+        />
+      )
+    );
   }, [photosState?.photos]);
 
   return (
