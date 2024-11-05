@@ -1,7 +1,8 @@
 .relish-app-photo {
   max-width: 400px;
-  border: 1px solid gray;
+  border: 1px solid var(--gray);
   padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .relish-app-photo__title {

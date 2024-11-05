@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { getPhotos as getPhotosService } from "./photos.service";
-import { defaultFilters, STATUSES } from "../constants";
+import { defaultFilters, defaultPagination, STATUSES } from "../constants";
 
 export const usePhotos = () => {
   const [photosState, setPhotosState] = useState({
     photos: [],
-    total: 0,
+    pagination: { ...defaultPagination },
     filters: { ...defaultFilters },
     status: STATUSES?.IDLE,
     filtersChanged: true,
@@ -26,7 +26,7 @@ export const usePhotos = () => {
         setPhotosState((prevState) => ({
           ...prevState,
           photos: data?.photos || [],
-          total: data?.total || 0,
+          pagination: { ...prevState?.pagination, total: data?.total || 0 },
           status: STATUSES?.IDLE,
         }));
       }
@@ -49,6 +49,7 @@ export const usePhotos = () => {
         setPhotosState((prevState) => ({
           ...prevState,
           filters: { ...defaultFilters, ...filters },
+          pagination: { ...defaultPagination },
           filtersChanged: true,
         }));
       }
@@ -56,5 +57,19 @@ export const usePhotos = () => {
     [photosState?.status]
   );
 
-  return { photosState, getPhotos, setFilters };
+  const handlePageChange = (page) => {
+    if (photosState?.status !== STATUSES?.IN_PROGRESS) {
+      setPhotosState((prevState) => {
+        const newOffset = (page - 1 || 0) * prevState?.filters?.limit;
+        return {
+          ...prevState,
+          filters: { ...prevState?.filters, offset: newOffset },
+          pagination: { ...prevState?.pagination, current: page },
+          filtersChanged: true,
+        };
+      });
+    }
+  };
+
+  return { photosState, getPhotos, setFilters, handlePageChange };
 };

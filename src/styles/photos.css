@@ -11,3 +11,7 @@
   grid-template-columns: auto auto auto auto auto;
   gap: 3rem 2rem;
 }
+
+.relish-app__photos-container:not(:last-child) {
+  margin-bottom: 1rem;
+}

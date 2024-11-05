@@ -6,6 +6,11 @@ export const defaultFilters = {
   offset: 0,
 };
 
+export const defaultPagination = {
+  total: 0,
+  current: 1,
+};
+
 export const STATUSES = {
   IDLE: "IDLE",
   IN_PROGRESS: "IN_PROGRESS",

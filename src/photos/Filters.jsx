@@ -31,6 +31,7 @@ const Filters = ({ filters = defaultFilters, onApplyFilter = () => {} }) => {
         <input
           id="photo_title"
           name="photo_title"
+          className="relish-app-filters__input"
           type="text"
           value={newFiltersState?.title}
           onChange={handleChange("title")}
@@ -41,6 +42,7 @@ const Filters = ({ filters = defaultFilters, onApplyFilter = () => {} }) => {
         <input
           id="album_title"
           name="album_title"
+          className="relish-app-filters__input"
           type="text"
           value={newFiltersState?.["album.title"]}
           onChange={handleChange("album.title")}
@@ -51,6 +53,7 @@ const Filters = ({ filters = defaultFilters, onApplyFilter = () => {} }) => {
         <input
           id="user_email"
           name="user_email"
+          className="relish-app-filters__input"
           type="email"
           value={newFiltersState?.["album.user.email"]}
           onChange={handleChange("album.user.email")}

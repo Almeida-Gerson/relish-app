@@ -12,5 +12,17 @@
   flex-direction: column;
 }
 
+.relish-app-filters__input {
+  border-radius: 0.5rem;
+  border: 1px solid var(--gray);
+  padding: 0.5rem;
+}
+
 .relish-app-filters__button {
+  background-color: var(--blue);
+  color: var(--white);
+  border: 1px solid var(--gray);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
