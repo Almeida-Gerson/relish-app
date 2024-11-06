@@ -1,6 +1,11 @@
 .relish-app-filters {
   display: flex;
   align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.relish-app-filters__item {
+  margin-bottom: 1rem;
 }
 
 .relish-app-filters__item:not(:last-child) {

@@ -8,10 +8,50 @@
 
 .relish-app__photos-container {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto;
   gap: 3rem 2rem;
+}
+
+.relish-app__photos-container .relish-app-photo {
+  max-width: initial;
 }
 
 .relish-app__photos-container:not(:last-child) {
   margin-bottom: 1rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .relish-app__photos-container {
+    grid-template-columns: auto auto;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .relish-app__photos-container {
+    grid-template-columns: auto auto auto;
+  }
+
+  .relish-app__photos-container .relish-app-photo {
+    max-width: 400px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .relish-app__photos-container {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .relish-app__photos-container {
+    grid-template-columns: auto auto auto auto auto;
+  }
 }
