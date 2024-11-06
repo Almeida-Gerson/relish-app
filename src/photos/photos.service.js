@@ -4,10 +4,10 @@ const instance = axios.create({
   baseURL: `${process.env.REACT_APP_API_URL}/externalapi`,
 });
 
-export const getPhotos = (params = {}) => {
+export const getPhotos = async (params = {}) => {
   return instance.get("/photos", { params });
 };
 
-export const getPhoto = (id) => {
+export const getPhoto = async (id) => {
   return instance.get(`/photos/${id}`);
 };

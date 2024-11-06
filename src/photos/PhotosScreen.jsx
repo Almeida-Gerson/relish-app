@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { usePhotos } from "./usePhotos";
 import Photo from "./Photo";
 import "normalize.css";

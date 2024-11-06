@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/filters.css";
 import { defaultFilters } from "../constants";
@@ -54,7 +54,7 @@ const Filters = ({ filters = defaultFilters, onApplyFilter = () => {} }) => {
           id="user_email"
           name="user_email"
           className="relish-app-filters__input"
-          type="email"
+          type="text"
           value={newFiltersState?.["album.user.email"]}
           onChange={handleChange("album.user.email")}
         />
