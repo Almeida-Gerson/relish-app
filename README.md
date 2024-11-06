@@ -23,6 +23,7 @@ https://relish-app.netlify.app
 4. Install `relish-app`'s 3rd party dependencies from `package-lock.json` via
     ```
     npm ci
+    ```
 
 ## Available Scripts
 
