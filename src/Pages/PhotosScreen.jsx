@@ -1,9 +1,9 @@
 import { useCallback } from "react";
-import { usePhotos } from "./usePhotos";
-import Photo from "./Photo";
+import { usePhotos } from "../Hooks/usePhotos";
+import Photo from "../Components/Photo";
 import "normalize.css";
-import Filters from "./Filters";
-import Pagination from "./Pagination";
+import Filters from "../Components/Filters";
+import Pagination from "../Components/Pagination";
 import "../styles/colors.css";
 import "../styles/photos.css";
 
@@ -14,21 +14,6 @@ const PhotosScreen = () => {
     setFilters(filters);
   };
 
-  const renderPhotos = useCallback(() => {
-    return photosState?.photos?.map(
-      ({ id, url, thumbnailUrl, title, album }) => (
-        <Photo
-          key={id}
-          id={id}
-          url={url}
-          thumbnailUrl={thumbnailUrl}
-          title={title}
-          album={album}
-        />
-      )
-    );
-  }, [photosState?.photos]);
-
   return (
     <div className="relish-app">
       <h1>Photos</h1>
@@ -38,7 +23,18 @@ const PhotosScreen = () => {
           onApplyFilter={handleApplyFilter}
         />
       </div>
-      <div className="relish-app__photos-container">{renderPhotos()}</div>
+      <div className="relish-app__photos-container">
+        {photosState?.photos?.map(({ id, url, thumbnailUrl, title, album }) => (
+          <Photo
+            key={id}
+            id={id}
+            url={url}
+            thumbnailUrl={thumbnailUrl}
+            title={title}
+            album={album}
+          />
+        ))}
+      </div>
       <div className="relish-app__pagination-container">
         <Pagination
           total={photosState?.pagination?.total}

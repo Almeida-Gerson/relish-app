@@ -1,4 +1,4 @@
-import PhotosScreen from "./photos/PhotosScreen";
+import PhotosScreen from "./Pages/PhotosScreen";
 
 function App() {
   return <PhotosScreen />;

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { getPhotos as getPhotosService } from "./photos.service";
+import { getPhotos as getPhotosService } from "../Services/photos.service";
 import { defaultFilters, defaultPagination, STATUSES } from "../constants";
 
 export const usePhotos = () => {
