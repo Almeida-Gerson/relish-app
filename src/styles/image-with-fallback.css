@@ -4,8 +4,13 @@
 }
 
 .relish-app-image-with-fallback__image {
+  display: block;
   height: 100%;
   width: 100%;
+}
+
+.relish-app-image-with-fallback--image-loading {
+  display: none;
 }
 
 .relish-app-image-with-fallback__loader {

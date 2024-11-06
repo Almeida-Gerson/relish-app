@@ -32,7 +32,11 @@ const ImageWithFallback = ({ src, alt, className }) => {
         </div>
       )}
       <img
-        className="relish-app-image-with-fallback__image"
+        className={`relish-app-image-with-fallback__image ${
+          imgState?.status === "LOADING"
+            ? "relish-app-image-with-fallback--image-loading"
+            : ""
+        }`}
         src={imgState?.src}
         alt={alt || "Image not available"}
         loading="lazy"
