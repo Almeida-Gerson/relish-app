@@ -8,6 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     -   [nvm](https://github.com/creationix/nvm)
 -   npm 10.x
 
+### Demo
+
+https://relish-app.netlify.app
+
 ## Usage
 
 1. Clone [relish-api](https://github.com/Almeida-Gerson/relish-api) – the API repo
