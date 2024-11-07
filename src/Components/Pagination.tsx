@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import PropTypes from "prop-types";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 
@@ -7,7 +6,12 @@ const Pagination = ({
   total = 0,
   current = 0,
   pageSize = 25,
-  onPageChange = () => {},
+  onPageChange,
+}: {
+  total: number;
+  current: number;
+  pageSize: number;
+  onPageChange: (page: number) => void;
 }) => {
   const numberOfPages = useMemo(() => {
     return Math.floor(total / pageSize || 1);
@@ -25,13 +29,6 @@ const Pagination = ({
       onPageChange={onPageChange}
     />
   );
-};
-
-Pagination.propTypes = {
-  total: PropTypes.number,
-  current: PropTypes.number,
-  pageSize: PropTypes.number,
-  onPageChange: PropTypes.func,
 };
 
 export default Pagination;

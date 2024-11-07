@@ -1,5 +1,4 @@
-import { useCallback, useState } from "react";
-import PropTypes from "prop-types";
+import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import "../styles/filters.css";
 import { defaultFilters } from "../constants";
 import Pagination from "./Pagination";
@@ -8,8 +7,20 @@ const Filters = ({
   filters = defaultFilters,
   total = 0,
   current = 0,
-  onPageChange = () => {},
-  onApplyFilter = () => {},
+  onPageChange,
+  onApplyFilter,
+}: {
+  filters?: {
+    title: string;
+    "album.title": string;
+    "album.user.email": string;
+    limit: number;
+    offset: number;
+  };
+  total?: number;
+  current?: number;
+  onPageChange: (page: number) => void;
+  onApplyFilter: (newFiltersState: any) => void;
 }) => {
   const [newFiltersState, setNewFiltersState] = useState({
     ...defaultFilters,
@@ -17,7 +28,7 @@ const Filters = ({
   });
 
   const handleChange = useCallback(
-    (key) => (e) => {
+    (key: string) => (e: ChangeEvent<HTMLInputElement>) => {
       setNewFiltersState((prevState) => ({
         ...prevState,
         [key]: e.target.value,
@@ -26,7 +37,7 @@ const Filters = ({
     []
   );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e?.preventDefault();
     onApplyFilter(newFiltersState);
   };
@@ -87,21 +98,6 @@ const Filters = ({
       </div>
     </div>
   );
-};
-
-Filters.propTypes = {
-  filters: PropTypes.shape({
-    title: PropTypes.string,
-    "album.title": PropTypes.string,
-    "album.user.email": PropTypes.string,
-    limit: PropTypes.number,
-    offset: PropTypes.number,
-  }),
-  total: PropTypes.number,
-  current: PropTypes.number,
-  pageSize: PropTypes.number,
-  onPageChange: PropTypes.func,
-  onApplyFilter: PropTypes.func,
 };
 
 export default Filters;

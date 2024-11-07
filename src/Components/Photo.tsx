@@ -1,9 +1,28 @@
-import PropTypes from "prop-types";
 import ImageWithFallback from "./ImageWithFallback";
 import "../styles/photo.css";
 
-const Photo = ({ id, url, thumbnailUrl, title, album }) => (
-  <div className="relish-app-photo">
+const Photo = ({
+  id,
+  url,
+  thumbnailUrl,
+  title,
+  album,
+}: {
+  id: number;
+  url: string;
+  thumbnailUrl: string;
+  title: string;
+  album: {
+    id: number;
+    title: string;
+    user: {
+      id: number;
+      email: string;
+      name: string;
+    };
+  };
+}) => (
+  <div key={id} className="relish-app-photo">
     <p className="relish-app-photo__title">{title}</p>
     <ImageWithFallback
       className="relish-app-photo__image"
@@ -26,22 +45,5 @@ const Photo = ({ id, url, thumbnailUrl, title, album }) => (
     </ul>
   </div>
 );
-
-Photo.propTypes = {
-  id: PropTypes.number.isRequired,
-  url: PropTypes.string,
-  thumbnailUrl: PropTypes.string,
-  title: PropTypes.string,
-  albumId: PropTypes.number,
-  album: PropTypes.shape({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    user: PropTypes.shape({
-      id: PropTypes.number,
-      email: PropTypes.string,
-      name: PropTypes.string,
-    }),
-  }),
-};
 
 export default Photo;

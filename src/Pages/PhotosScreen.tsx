@@ -1,11 +1,12 @@
 import { usePhotos } from "../Hooks/usePhotos";
 import Photo from "../Components/Photo";
-import "normalize.css";
 import Filters from "../Components/Filters";
 import Pagination from "../Components/Pagination";
+import { STATUSES } from "../constants";
+import "normalize.css";
+import "../styles/app.css";
 import "../styles/colors.css";
 import "../styles/photos.css";
-import { STATUSES } from "../constants";
 
 const PhotosScreen = () => {
   const { photosState, setFilters, handlePageChange } = usePhotos();

@@ -1,10 +1,17 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
 import "../styles/image-with-fallback.css";
-import placeholderImage from "../images/placeholder-unsplash.jpg";
+import placeholderImage from "../assets/images/placeholder-unsplash.jpg";
 import { STATUSES } from "../constants";
 
-const ImageWithFallback = ({ src, alt, className }) => {
+const ImageWithFallback = ({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt?: string;
+  className?: string;
+}) => {
   const [imgState, setImgState] = useState({
     status: STATUSES?.IN_PROGRESS,
     src,
@@ -45,11 +52,6 @@ const ImageWithFallback = ({ src, alt, className }) => {
       />
     </div>
   );
-};
-
-ImageWithFallback.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string,
 };
 
 export default ImageWithFallback;

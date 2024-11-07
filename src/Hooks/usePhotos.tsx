@@ -3,7 +3,13 @@ import { getPhotos as getPhotosService } from "../Services/photos.service";
 import { defaultFilters, defaultPagination, STATUSES } from "../constants";
 
 export const usePhotos = () => {
-  const [photosState, setPhotosState] = useState({
+  const [photosState, setPhotosState] = useState<{
+    photos: any[];
+    pagination: any;
+    filters: any;
+    status: string;
+    filtersChanged: boolean;
+  }>({
     photos: [],
     pagination: { ...defaultPagination },
     filters: { ...defaultFilters },
@@ -44,7 +50,7 @@ export const usePhotos = () => {
   }, [getPhotos]);
 
   const setFilters = useCallback(
-    (filters = {}) => {
+    (filters: any = {}) => {
       if (photosState?.status !== STATUSES?.IN_PROGRESS) {
         setPhotosState((prevState) => ({
           ...prevState,
@@ -57,7 +63,7 @@ export const usePhotos = () => {
     [photosState?.status]
   );
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page: number) => {
     if (photosState?.status !== STATUSES?.IN_PROGRESS) {
       setPhotosState((prevState) => {
         const newOffset = (page - 1 || 0) * prevState?.filters?.limit;
