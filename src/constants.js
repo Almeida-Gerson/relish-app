@@ -15,4 +15,5 @@ export const STATUSES = {
   IDLE: "IDLE",
   IN_PROGRESS: "IN_PROGRESS",
   ERROR: "ERROR",
+  LOADED: "LOADED",
 };

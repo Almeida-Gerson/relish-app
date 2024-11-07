@@ -1,5 +1,13 @@
 .relish-app-filters {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.relish-app-filters__container {
+  display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
 }
@@ -30,4 +38,11 @@
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .relish-app-filters__section:not(:last-child) {
+    margin-right: 1rem;
+  }
 }

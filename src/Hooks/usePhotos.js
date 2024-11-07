@@ -27,7 +27,7 @@ export const usePhotos = () => {
           ...prevState,
           photos: data?.photos || [],
           pagination: { ...prevState?.pagination, total: data?.total || 0 },
-          status: STATUSES?.IDLE,
+          status: STATUSES?.LOADED,
         }));
       }
     } catch (error) {

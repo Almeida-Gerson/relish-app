@@ -2,13 +2,16 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/image-with-fallback.css";
 import placeholderImage from "../images/placeholder-unsplash.jpg";
+import { STATUSES } from "../constants";
 
 const ImageWithFallback = ({ src, alt, className }) => {
-  const [imgState, setImgState] = useState({ status: "LOADING", src });
+  const [imgState, setImgState] = useState({
+    status: STATUSES?.IN_PROGRESS,
+    src,
+  });
 
   const handleImageLoad = () => {
-    console.log("🚀 ~ handleImageLoad ~ handleImageLoad:");
-    setImgState((prevState) => ({ ...prevState, status: "LOADED" }));
+    setImgState((prevState) => ({ ...prevState, status: STATUSES?.LOADED }));
   };
 
   const handleError = () => {
@@ -16,13 +19,13 @@ const ImageWithFallback = ({ src, alt, className }) => {
       ...prevState,
       //   src: `${process.env.PUBLIC_URL}/placeholder-unsplash.jpg`,
       src: placeholderImage,
-      status: "LOADED",
+      status: STATUSES?.LOADED,
     }));
   };
 
   return (
     <div className={`relish-app-image-with-fallback ${className ?? ""}`}>
-      {imgState?.status === "LOADING" && (
+      {imgState?.status === STATUSES?.IN_PROGRESS && (
         <div
           className="relish-app-image-with-fallback__loader"
           role="status"
