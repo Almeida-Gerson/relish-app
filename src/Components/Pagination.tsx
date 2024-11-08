@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 import "../styles/pagination.css";
