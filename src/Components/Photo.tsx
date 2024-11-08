@@ -1,27 +1,8 @@
 import ImageWithFallback from "./ImageWithFallback";
 import "../styles/photo.css";
+import { Photo as PhotoType } from "../types/photos";
 
-const Photo = ({
-  id,
-  url,
-  thumbnailUrl,
-  title,
-  album,
-}: {
-  id: number;
-  url: string;
-  thumbnailUrl: string;
-  title: string;
-  album: {
-    id: number;
-    title: string;
-    user: {
-      id: number;
-      email: string;
-      name: string;
-    };
-  };
-}) => (
+const Photo = ({ id, url, thumbnailUrl, title, album }: PhotoType) => (
   <div key={id} className="relish-app-photo">
     <p className="relish-app-photo__title">{title}</p>
     <ImageWithFallback

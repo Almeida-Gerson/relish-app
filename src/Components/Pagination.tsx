@@ -11,7 +11,7 @@ const Pagination = ({
 }: {
   total: number;
   current: number;
-  pageSize: number;
+  pageSize?: number;
   onPageChange: (page: number) => void;
 }) => {
   const numberOfPages = useMemo(() => {

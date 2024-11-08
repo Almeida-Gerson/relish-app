@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import "../styles/filters.css";
 import { defaultFilters } from "../constants";
 import Pagination from "./Pagination";
+import { PhotosFilter } from "../types/photos";
 
 const Filters = ({
   filters = defaultFilters,
@@ -10,17 +11,11 @@ const Filters = ({
   onPageChange,
   onApplyFilter,
 }: {
-  filters?: {
-    title: string;
-    "album.title": string;
-    "album.user.email": string;
-    limit: number;
-    offset: number;
-  };
+  filters?: PhotosFilter;
   total?: number;
   current?: number;
   onPageChange: (page: number) => void;
-  onApplyFilter: (newFiltersState: any) => void;
+  onApplyFilter: (newFiltersState: PhotosFilter) => void;
 }) => {
   const [newFiltersState, setNewFiltersState] = useState({
     ...defaultFilters,
