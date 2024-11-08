@@ -12,22 +12,20 @@ const ImageWithFallback = ({
   alt?: string;
   className?: string;
 }) => {
-  const [imgState, setImgState] = useState({
+  const [imgState, setImgState] = useState<{
+    status: string;
+    src: string;
+  }>({
     status: STATUSES?.IN_PROGRESS,
     src,
   });
 
   const handleImageLoad = () => {
-    setImgState((prevState) => ({ ...prevState, status: STATUSES?.LOADED }));
+    setImgState({ ...imgState, status: STATUSES?.LOADED });
   };
 
   const handleError = () => {
-    setImgState((prevState) => ({
-      ...prevState,
-      //   src: `${process.env.PUBLIC_URL}/placeholder-unsplash.jpg`,
-      src: placeholderImage,
-      status: STATUSES?.LOADED,
-    }));
+    setImgState({ src: placeholderImage, status: STATUSES?.LOADED });
   };
 
   return (

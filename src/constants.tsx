@@ -1,4 +1,6 @@
-export const defaultFilters = {
+import { Pagination, PhotosFilter } from "./types/photos";
+
+export const defaultFilters: PhotosFilter = {
   title: "",
   "album.title": "",
   "album.user.email": "",
@@ -6,7 +8,7 @@ export const defaultFilters = {
   offset: 0,
 };
 
-export const defaultPagination = {
+export const defaultPagination: Pagination = {
   total: 0,
   current: 1,
 };
