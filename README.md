@@ -19,6 +19,10 @@ https://relish-app.netlify.app
    ```
    npm ci
    ```
+2. Run `relish-api`'s  via
+   ```
+   npm start
+   ```
 3. Clone this repo
 4. Install `relish-app`'s 3rd party dependencies from `package-lock.json` via
    ```
