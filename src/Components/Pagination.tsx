@@ -9,14 +9,12 @@ const Pagination = ({
   pageSize = 25,
   onPageChange,
 }: {
-  total: number;
-  current: number;
+  total?: number;
+  current?: number;
   pageSize?: number;
   onPageChange: (page: number) => void;
 }) => {
-  const numberOfPages = useMemo(() => {
-    return Math.floor(total / pageSize || 1);
-  }, [pageSize, total]);
+  const numberOfPages = Math.floor(total / pageSize || 1);
 
   if (numberOfPages <= 1) {
     return null;
