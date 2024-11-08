@@ -31,6 +31,14 @@ const PhotosScreen = () => {
       );
     }
 
+    if (photosState?.status === STATUSES?.ERROR) {
+      return (
+        <div className="relish-app__photos-content">
+          There are some errors. Please try again
+        </div>
+      );
+    }
+
     if (
       photosState?.status === STATUSES?.LOADED &&
       !photosState?.photos?.length

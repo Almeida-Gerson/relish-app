@@ -28,6 +28,7 @@ export const usePhotos = () => {
           ...prevState,
           status: STATUSES?.IN_PROGRESS,
           filtersChanged: false,
+          photos: [],
         }));
         const data = await getPhotosService(photosState?.filters);
         setPhotosState((prevState) => ({
